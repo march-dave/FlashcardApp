@@ -15,6 +15,35 @@ app.config(function($stateProvider, $urlRouterProvider) {
           }
       }
     })
+    .state('flashcardlist', {
+      url: '/flashcardlist',
+      templateUrl: '/html/flashcardlist.html',
+      controller: 'flashcardlistCtrl'
+      ,
+      resolve: {
+        flashCardDex: function(FlashCardService) {
+          return FlashCardService.getAll();
+        }
+      }
+    })
+    // .state('flashcardlist', {
+    //   url: '/flashcardlist/:id',
+    //   templateUrl: '/html/flashcardlist.html',
+    //   controller: 'flashcardlistCtrl'
+    //   ,
+    //   resolve: {
+    //     flashCardDelete: function(FlashCardService, $stateParams) {
+    //       var id = $stateParams.id;
+    //       return FlashCardService.delete(id);
+    //     }
+    //   }
+    // })
+    .state('newFlashCard', {
+      url: '/newFlashCard',
+      templateUrl: '/html/newFlashCard.html',
+      controller: 'newFlashCardCtrl'
+    })
+
     .state('list', {
       url: '/list/:id',
       templateUrl: '/html/list.html',
@@ -41,16 +70,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
 
     $urlRouterProvider.otherwise('/');
-
-
-
-  // .state('home', { url: '/', templateUrl: '/html/home.html', controller: 'homeCtrl' })
-  // .state('about', { url: '/about/:peopleIndex', templateUrl: '/html/about.html', controller: 'aboutCtrl' })
-
-
-
-
-
 
     // .state('home', {
     //   url: '/',

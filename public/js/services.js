@@ -4,29 +4,28 @@ var app = angular.module('flashcardApp');
 
 app.service('FlashCardService', function($http, $q) {
 
-  // this.getStarDex = id => {
-  //   return $http({
-  //     method: 'GET',
-  //     url: `http://swapi.co/api/people/?page=${id}`,
-  //     cache: true
-  //   })
-  //   .then(res => {
-  //       return $q.resolve(res.data.results);
-  //   })
-  // };
-
   this.getAll = () => {
     return $http({
       method: "GET",
-      // url: `http://swapi.co/api/people/${id}`,
       url: `/api/flashcards`,
       cache: true
     })
     .then(res => $q.resolve(res.data));
-
   };
 
-})
+  this.create = newFlashcard => {
+     return $http.post('/api/flashcards', newFlashcard);
+   };
+
+  this.delete = function(id) {
+    return $http.delete(`/api/flashcards/${id}`)
+  };
+
+  this.edit = function(id, flashcard) {
+    return $http.put(`/api/flashcards/${id}`, flashcard)
+  }
+});
+
 //
 // // app.service('SwapiService', function ($http) {
 // //   this.getCharacters = () => {

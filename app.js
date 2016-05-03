@@ -13,11 +13,6 @@ mongoose.connect(MONGOURL, err => {
   console.log(err || `Connected to MongoDB at ${MONGOURL}`);
 });
 
-
-
-// var routes = require('./routes/index');
-// var users = require('./routes/users');
-
 var app = express();
 
 // view engine setup

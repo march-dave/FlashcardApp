@@ -10,7 +10,7 @@ var Flashcard = require('../models/flashcard');
 
 /* GET users listing. */
 router.get('/', (req, res) => {
-  Tree.find({}, (err, trees) => {
+  Flashcard.find({}, (err, trees) => {
     if(err) {
       res.status(400).send(err);
     } else {
@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
 /* GET /api/trees/:id */
 router.get('/:id', (req, res) => {
 
-  Tree.findById(req.params.id, (err, flashcards) => {
+  Flashcard.findById(req.params.id, (err, flashcards) => {
     if(err) {
       res.status(400).send(err);
     } else {
@@ -32,7 +32,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  Tree.findByIdAndRemove(req.params.id, (err, flashcards) => {
+  Flashcard.findByIdAndRemove(req.params.id, (err, flashcards) => {
     if(err) {
       res.status(400).send(err);
     } else {
@@ -47,7 +47,7 @@ router.put('/:id', (req, res) => {
   // req.params.id --> docuemt id
   // req.body --> update obj
 
-  Tree.findByIdAndUpdate(req.params.id,  {$set: req.body},  {new: true}, (err, flashcard) => {
+  Flashcard.findByIdAndUpdate(req.params.id,  {$set: req.body},  {new: true}, (err, flashcard) => {
     if(err) {
       res.status(400).send(err);
     } else {
@@ -67,6 +67,5 @@ router.post('/', (req, res) => {
     }
   });
 });
-
 
 module.exports = router;

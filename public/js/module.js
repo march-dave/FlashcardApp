@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('flashcardApp', ['ui.router', 'oitozero.ngSweetAlert']);
+var app = angular.module('flashcardApp', ['ui.router']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
@@ -9,6 +9,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/',
       templateUrl: '/html/home.html',
       controller: 'homeCtrl'
+      ,resolve: {
+          flashCardDex: function(FlashCardService) {
+            return FlashCardService.getAll();
+          }
+      }
     })
     .state('list', {
       url: '/list/:id',

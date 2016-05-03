@@ -18,11 +18,11 @@ app.service('FlashCardService', function($http, $q) {
    };
 
   this.delete = function(id) {
-    return $http.delete(`/api/flashcards/${id}`)
+    return $http.delete(`/api/flashcards/${id}`);
   };
 
   this.edit = function(id, flashcard) {
-    return $http.put(`/api/flashcards/${id}`, flashcard)
+    return $http.put(`/api/flashcards/${id}`, flashcard);
   }
 });
 

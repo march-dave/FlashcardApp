@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 // const MONGOURL = 'mongodb://localhost:/mongo-express'
-const MONGOURL = 'mongodb://localhost:/flashcard-app'
+const MONGOURL = process.env.MONGODB_URI || 'mongodb://localhost:/flashcard-app'
 mongoose.connect(MONGOURL, err => {
   console.log(err || `Connected to MongoDB at ${MONGOURL}`);
 });

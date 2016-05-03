@@ -26,18 +26,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    // .state('flashcardlist', {
-    //   url: '/flashcardlist/:id',
-    //   templateUrl: '/html/flashcardlist.html',
-    //   controller: 'flashcardlistCtrl'
-    //   ,
-    //   resolve: {
-    //     flashCardDelete: function(FlashCardService, $stateParams) {
-    //       var id = $stateParams.id;
-    //       return FlashCardService.delete(id);
-    //     }
-    //   }
-    // })
     .state('newFlashCard', {
       url: '/newFlashCard',
       templateUrl: '/html/newFlashCard.html',
